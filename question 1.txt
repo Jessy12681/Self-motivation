@@ -1,0 +1,27 @@
+#include <stdio.h>
+int removeDup(int nums[], int size)
+{
+	if (size == 0) return 0;
+	int unique = 0;
+	for(int i = 1; i < size; i++)
+{
+	if (nums[i] != nums[unique])
+{
+	unique++;      
+	nums[unique] = nums[i];
+}
+}
+	return unique + 1;
+}
+int main() {
+	int nums[] = {1, 2, 6, 6, 7, 7, 8, 9, 9};
+	int size = sizeof(nums) / sizeof(nums[0]);
+	
+	int newsize = removeDup(nums, size);
+	printf("No duplicates: ");
+	for (int i = 0; i < newsize; i++) {
+	printf("%d", nums[i]);
+}
+	printf("\nNew Array: %d\n", newsize);
+return 0;
+}
